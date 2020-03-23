@@ -17,19 +17,23 @@ window.onload = function(){
                 errors.push(input.id);
             } else {
                 newPatient[input.id] = input.value;
-                console.log(newPatient);
             }
         });
 
         //If there are no errors fill the database.
         if(errors.length == 0){
 
-            console.log("No errors...");
-            console.log("Patient " + newPatient.name + " is being uploaded to the database...");
+            console.log("No errors..");
+            console.log("Patient " + newPatient.name + " is being uploaded to the database..");
 
             database.currentID = database.currentID + 1;
+            newPatient["id"] = database.currentID;
+            database["P" + database.currentID] = newPatient;
+            
+            localStorage.setItem("pDB", JSON.stringify(database));
+            console.log("Patient " + newPatient.name + " with id: " + database.currentID + " was successfully uploaded to the database!");
 
-            console.log(database.currentID);
+
 
         }else{
             console.log(errors)
