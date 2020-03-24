@@ -6,9 +6,16 @@ let database = JSON.parse(localStorage.getItem("pDB"));
 window.onload = function(){
     patientCounter();
 
-    let submitButton = document.getElementById("submit").addEventListener("click", function(e){
+    //Search patient:
+    let searchButton = document.getElementById("searchButton").addEventListener("click", function(e){
+        search();
+    });
+    //Load new patient:
+    let submitButton = document.getElementById("submitButton").addEventListener("click", function(e){
         save();
     });
+
+
 }
 
 function patientCounter(){
@@ -16,13 +23,38 @@ function patientCounter(){
     patientCounter.innerHTML = patientCounter.innerHTML + " " + (Object.keys(database).length - 1); //Substract 1 because of the CurrentID key.
 }
 
-function readInputs(){
-    let inputs = (Array.prototype.slice.call(document.querySelectorAll("input"+", textarea"))); //get the NodeList of inputs and turn it into an array.
+function readCInputs(){
+    let inputs = (Array.prototype.slice.call(document.querySelectorAll(".c-form"))); //get the NodeList of inputs and turn it into an array.
     return inputs;
 }
 
+function search(){
+    let searchInput = document.getElementById("search").value.split(" ");
+    let results = {}
+    for (const patient in database) {
+        for (const property in database[patient]) {
+            if(database[patient][property] == searchInput){
+                console.log(database[patient].id);
+                results[database[patient].id] = database[patient];
+            }
+        }
+    }
+    console.log(results);
+    displayResults(results);
+    return results;
+}
+
+function displayResults(results){
+    let resultsDiv = document.getElementById("results");
+    resultsDiv.innerHTML = "";
+    console.log(resultsDiv);
+    for (const patient in results) {
+        resultsDiv.innerHTML = resultsDiv.innerHTML + "<li>Nombre: " + results[patient].name + " Apellido: " + results[patient].surname + "</li>";
+    }
+}
+
 function save(){
-    let completedInputs = readInputs();
+    let completedInputs = readCInputs();
     let newPatient = {}
     let errors = [];
 
@@ -49,7 +81,8 @@ function save(){
         localStorage.setItem("pDB", JSON.stringify(database));
         console.log("Patient " + newPatient.name + " with id: " + database.currentID + " was successfully uploaded to the database!");
 
-
+        //Reload Site
+        location.reload();
 
     }else{
         console.log(errors)

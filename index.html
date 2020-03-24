@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
     <title>Patient Database</title>
 </head>
 <body>
@@ -12,47 +13,56 @@
 
     <hr>
 
+    <input id="search" name="search" placeholder="Buscar paciente" type="text">
+    <button id="searchButton">Buscar</button>
+
+    <ul id="results"></ul>
+
+    <hr>
+
+    <h2>Cargar nuevo paciente</h2>
+
     <label for="name">Nombre:</label>
-    <input id="name" name="name" placeholder="Ingrese un nombre" type="text">
+    <input id="name" class="c-form" name="name" placeholder="Ingrese un nombre" type="text">
 
     <br>
 
     <label for="surname">Apellido:</label>
-    <input id="surname" name="surname" placeholder="Ingrese un apellido" type="text">
+    <input id="surname" class="c-form" name="surname" placeholder="Ingrese un apellido" type="text">
     
     <br>
 
     <label for="adress">Domicilio:</label>
-    <input id="adress" name="adress" placeholder="Ej: Av.Rivadavia 2232" type="text">
+    <input id="adress" class="c-form" name="adress" placeholder="Ej: Av.Rivadavia 2232" type="text">
     
     <br>
 
     <label for="phone">Telefono:</label>
-    <input id="phone" name="phone" placeholder="Ingrese un telefono" type="text">
+    <input id="phone" class="c-form" name="phone" placeholder="Ingrese un telefono" type="text">
     
     <hr>
 
     <label for="relativeName">Nombre de Familiar:</label>
-    <input id="relativeName" name="relativeName" placeholder="Ingrese un nombre" type="text">
+    <input id="relativeName" class="c-form" name="relativeName" placeholder="Ingrese un nombre" type="text">
 
     <br>
     
     <label for="relativeSurname">Apellido de Familiar:</label>
-    <input id="relativeSurname" name="relativeSurname" placeholder="Ingrese un apellido" type="text">
+    <input id="relativeSurname" class="c-form" name="relativeSurname" placeholder="Ingrese un apellido" type="text">
 
     <hr>
 
     <label for="date">Fecha de Consulta:</label>
-    <input id="date" name="date" placeholder="DD/MM/AA" type="text">
+    <input id="date" class="c-form" name="date" placeholder="DD/MM/AA" type="text">
 
     <br>
 
     <label for="reason">Motivo de Consulta:</label><br>
-    <textarea name="reason" id="reason" cols="30" rows="10"></textarea>
+    <textarea name="reason" class="c-form" id="reason" cols="30" rows="10"></textarea>
 
     <hr>
 
-    <button id="submit">Cargar Paciente</button>
+    <button id="submitButton">Cargar Paciente</button>
 
     <script src="js/engine.js"></script>
 
