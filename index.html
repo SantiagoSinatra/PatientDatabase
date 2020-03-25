@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
     <title>Patient Database</title>
 </head>
 <body>
@@ -14,9 +14,19 @@
     <hr>
 
     <input id="search" name="search" placeholder="Buscar paciente" type="text">
-    <button id="searchButton">Buscar</button>
 
-    <ul id="results"></ul>
+    <label for="nsRadio">Nombre o Apellido</label>
+    <input id="nsRadio" class="radiobutton" name="searchParam" value="ns" type="radio" checked> <!-- name & surname -->
+
+    <label for="pRadio">| Telefono</label>
+    <input id="pRadio" class="radiobutton" name="searchParam" value="p" type="radio"> <!-- phone -->
+
+    <label for="aRadio">| Direccion</label>
+    <input id="aRadio" class="radiobutton" name="searchParam" value="a" type="radio"> <!-- address -->
+
+    <button class="radiobutton" name="searchParam" id="searchButton">Buscar</button>
+
+    <div class="searchResults"></div>
 
     <hr>
 
@@ -64,6 +74,9 @@
 
     <button id="submitButton">Cargar Paciente</button>
 
+    <script src="js/classes/Database.js"></script>
+    <script src="js/classes/Patient.js"></script>
+    <script src="js/controllers/viewController.js"></script>
     <script src="js/engine.js"></script>
 
 </body>
