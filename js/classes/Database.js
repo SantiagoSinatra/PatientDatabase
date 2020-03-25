@@ -55,7 +55,7 @@ class Database{
             case "p":
                 for (let patient in data.patients) {
                     if(data.patients[patient].phone == searchInput){
-                        console.log(data.patients[patient]);
+                        results.push(data.patients[patient]);
                     }
                 }
                 break;
@@ -63,7 +63,7 @@ class Database{
             case "a":
                 for (let patient in data.patients) {
                     if(data.patients[patient].address == searchInput){
-                        console.log(data.patients[patient]);
+                        results.push(data.patients[patient]);
                     }
                 }
                 break;
